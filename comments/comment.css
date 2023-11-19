@@ -1,0 +1,55 @@
+body{
+    text-align: center;
+    background-color: #000000;
+    opacity: 1;
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(to right, #5b3e3e, #5b3e3e 1px, #000000 1px, #000000);
+}
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    color: aquamarine;
+    padding: 25px;
+    font-size: 52px ;
+}
+.table{
+    color: aqua;
+}
+.tt{
+    color: rgb(132, 99, 250);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+/* Edit Command */
+
+.editcomment{
+    color: rgb(230, 145, 145);
+    text-align: justify;
+}
+.t1{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    color: blanchedalmond;
+}
+.updatecommentfrm{
+    color: blanchedalmond;
+    text-align: justify;
+    padding-top: 5%;
+}     
+.edit_comment_btn_1 {
+    align-items: center;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: #1A202C;
+    display: inline-flex;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 0.56px;
+    justify-content: center;
+    line-height: 24px;
+    padding: 24px;
+    text-decoration: none;
+    cursor: pointer;
+}
