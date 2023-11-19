@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+body{
+    background-color: #000000;
+    opacity: 1;
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(to right, #5b3e3e, #5b3e3e 1px, #000000 1px, #000000);
+}
+.comments{
+    padding:10px;
+    margin:5px;
+    border:1px solid rgb(238, 26, 26);
+    border-radius:5px;
+    background-color: rgb(234, 149, 149);
+    text-transform: uppercase;
+    color:black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    
+}
+.p-ds{
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+}
