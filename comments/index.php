@@ -3,7 +3,7 @@
 ?>
 <?php
     if(isset($_GET["Delete"])){
-        $sql1="Delete from annoncement where Ann_id=".$_GET["Delete"];
+        $sql1="Delete from comment where C_ID=".$_GET["Delete"];
         $result2 = mysqli_query($connection,$sql1);
 
         if($sql1){
@@ -14,7 +14,7 @@
         }
     }
     if(isset($_GET["Approve"])){
-        $sql2="update annoncement set Status='1' where Ann_id=".$_GET["Approve"];
+        $sql2="update comment set Status='1' where C_ID=".$_GET["Approve"];
         $result2 = mysqli_query($connection,$sql2);
 
         if($sql2){
@@ -25,7 +25,7 @@
         }
     }
     if(isset($_GET["Reject"])){
-        $sql3="update annoncement set Status='2' where Ann_id=".$_GET["Reject"];
+        $sql3="update comment set Status='2' where C_ID=".$_GET["Reject"];
         $result3 = mysqli_query($connection,$sql3);
 
         if($sql3){
@@ -49,61 +49,64 @@
     </head>
     <body>
         <div class="container-fluid">
-            <h3 class="title">Announcements</h3>
+            <h3 class="title">All Comments</h3>
             <div class="btn_back">
                 <a class="btn-outline-info" href="../dashboard.php">Back</a>
-            </div>
-            <div class="btn_add">
-                <a class="btn-out" href="add_annoncements.php">Add Announcements</a>
             </div>
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Topic</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Operations</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Post ID</th>
+                        <th scope="col">Postname</th>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        $query=mysqli_query($connection,"select * from `annoncement`");
+                        $query=mysqli_query($connection,"select * from `Comment`");
                         while($row=mysqli_fetch_array($query)){
                     ?>
                     <tr>
-                        <th scope="row"><?php echo $row['Ann_id']; ?></th>
-                        <td><?php echo $row['Topic']; ?></td>
+                        <th scope="row"><?php echo $row['C_ID']; ?></th>
                         <td><?php echo $row['Description']; ?></td>
-                        <td><?php echo $row['Image']; ?></td>
+                        <td><?php echo $row['Date']; ?></td>
+                        <td><?php echo $row['Time']; ?></td>
                         <td>
                             <?php  
                                 if($row['Status']=="1")
                                     {
-                                        $approved='<div class="text-success">Showing</div>';
+                                        $approved='<div class="text-success">Approved</div>';
                                         echo $approved;
                                     };
                                 if($row['Status']=="2")
                                     { 
-                                        $rejected='<div class="text-danger">Not Showing</div>';
+                                        $rejected='<div class="text-danger">Rejected</div>';
                                         echo $rejected;
                                     };
 
                                 if($row['Status']=='')
                                     { 
-                                        $pending_approval='<div class="text-warning">Pending </div>';
+                                        $pending_approval='<div class="text-warning">Pending Approval</div>';
                                         echo $pending_approval;
                                     };
                                                                         
                             ?>
                         </td>
+                        <td><?php echo $row['P_ID']; ?></td>
+                        <td><?php echo $row['P_Name']; ?></td>
+                        <td><?php echo $row['User_ID']; ?></td>
+                        <td><?php echo $row['Username']; ?></td>
                         <td>
-                            <a class="link" href="index.php?Approve=<?php echo $row["Ann_id"];?>">Show</a> &nbsp
-                            <a class="link" href="index.php?Reject=<?php echo $row["Ann_id"];?>">Not Show</a> &nbsp
-                            <a class="link" href="update_announcements.php?update=<?php echo $row["Ann_id"];?>">Update</a> &nbsp
-                            <a class="link" href="index.php?Delete=<?php echo $row["Ann_id"];?>">Delete</a>
-                            
+                            <a class="link" href="index.php?Approve=<?php echo $row["C_ID"];?>">Approve</a> &nbsp
+                            <a class="link" href="index.php?Reject=<?php echo $row["C_ID"];?>">Reject</a> &nbsp
+                            <a class="link" href="index.php?Delete=<?php echo $row["C_ID"];?>">Delete</a>   
                         </td>
                     </tr>
                     <?php } ?>
